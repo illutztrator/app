@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @session_answer.session_id %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @session_answer.answer_id %>
+</p>
+
+<%= link_to 'Edit', edit_session_answer_path(@session_answer) %> |
+<%= link_to 'Back', session_answers_path %>

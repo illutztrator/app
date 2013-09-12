@@ -1,4 +1,17 @@
 App::Application.routes.draw do
+  get "coaching/index"
+  get "index/home"
+  get "index/about"
+  resources :session_answers
+
+  resources :answers
+
+  resources :questions
+
+  resources :sessions
+
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
