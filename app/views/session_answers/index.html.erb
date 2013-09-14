@@ -1,0 +1,29 @@
+<h1>Listing session_answers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Session</th>
+      <th>Answer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @session_answers.each do |session_answer| %>
+      <tr>
+        <td><%= session_answer.session_id %></td>
+        <td><%= session_answer.answer_id %></td>
+        <td><%= link_to 'Show', session_answer %></td>
+        <td><%= link_to 'Edit', edit_session_answer_path(session_answer) %></td>
+        <td><%= link_to 'Destroy', session_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Session answer', new_session_answer_path %>

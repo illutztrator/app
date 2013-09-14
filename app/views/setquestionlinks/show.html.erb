@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Set:</strong>
+  <%= @setquestionlink.set_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @setquestionlink.question_id %>
+</p>
+
+<p>
+  <strong>Follower:</strong>
+  <%= @setquestionlink.follower_id %>
+</p>
+
+<%= link_to 'Edit', edit_setquestionlink_path(@setquestionlink) %> |
+<%= link_to 'Back', setquestionlinks_path %>

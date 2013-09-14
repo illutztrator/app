@@ -1,0 +1,27 @@
+<h1>Listing questionsets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questionsets.each do |questionset| %>
+      <tr>
+        <td><%= questionset.title %></td>
+        <td><%= link_to 'Show', questionset %></td>
+        <td><%= link_to 'Edit', edit_questionset_path(questionset) %></td>
+        <td><%= link_to 'Destroy', questionset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questionset', new_questionset_path %>
