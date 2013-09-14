@@ -1,0 +1,29 @@
+<%= form_for(@setquestionlink) do |f| %>
+  <% if @setquestionlink.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setquestionlink.errors.count, "error") %> prohibited this setquestionlink from being saved:</h2>
+
+      <ul>
+      <% @setquestionlink.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :set_id %><br>
+    <%= f.number_field :set_id %>
+  </div>
+  <div class="field">
+    <%= f.label :question_id %><br>
+    <%= f.number_field :question_id %>
+  </div>
+  <div class="field">
+    <%= f.label :follower_id %><br>
+    <%= f.number_field :follower_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

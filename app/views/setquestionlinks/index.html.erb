@@ -1,0 +1,31 @@
+<h1>Listing setquestionlinks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Question</th>
+      <th>Follower</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @setquestionlinks.each do |setquestionlink| %>
+      <tr>
+        <td><%= setquestionlink.set_id %></td>
+        <td><%= setquestionlink.question_id %></td>
+        <td><%= setquestionlink.follower_id %></td>
+        <td><%= link_to 'Show', setquestionlink %></td>
+        <td><%= link_to 'Edit', edit_setquestionlink_path(setquestionlink) %></td>
+        <td><%= link_to 'Destroy', setquestionlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Setquestionlink', new_setquestionlink_path %>
