@@ -11,7 +11,7 @@ class CoachingController < ApplicationController
   	@sess.sessionid = generateSessId(@sess[:user_id])
   	@sessNew = true
   	@currentset = 1
-  	@firstQuestionSetData = Setitem.where(set_id: @currentset).first
+  	@firstQuestionSetData = SetItem.where(set_id: @currentset).first
   	@firstItemData = {:setItemId => @firstQuestionSetData[:id], :item_id => @firstQuestionSetData[:item_id], :itemtype => @firstQuestionSetData[:itemtype]}
   	
   	case @firstQuestionSetData[:itemtype]
