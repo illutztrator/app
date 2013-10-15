@@ -1,4 +1,4 @@
-class Setitem < ActiveRecord::Base
+class SetItem < ActiveRecord::Base
 
 	has_many :questions
 	has_many :texts
