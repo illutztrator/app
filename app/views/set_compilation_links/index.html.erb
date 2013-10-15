@@ -1,0 +1,29 @@
+<h1>Listing set_compilation_links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Setcompilation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @set_compilation_links.each do |set_compilation_link| %>
+      <tr>
+        <td><%= set_compilation_link.set_id %></td>
+        <td><%= set_compilation_link.setcompilation_id %></td>
+        <td><%= link_to 'Show', set_compilation_link %></td>
+        <td><%= link_to 'Edit', edit_set_compilation_link_path(set_compilation_link) %></td>
+        <td><%= link_to 'Destroy', set_compilation_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Set compilation link', new_set_compilation_link_path %>

@@ -1,9 +1,25 @@
 App::Application.routes.draw do
+  resources :problems
+
+  resources :questiongroupquestions
+
+  resources :questiongroups
+
+  resources :answer_switches
+
+  resources :set_compilation_links
+
+  resources :setcompilations
+
+  resources :texts
+
   resources :setquestionlinks
 
   resources :questionsets
 
-  get "coaching/index"
+  get "coaching/welcome", to: 'coaching#index'
+  get "coaching/start", to: "coaching#start"
+  post "coaching", to: "coaching#coaching"
   get "index/home"
   get "index/about"
   
@@ -16,7 +32,10 @@ App::Application.routes.draw do
   resources :sessions
 
   resources :users
+  
+  resources :coaching 
 
+	#match 'coaching' to 'coaching#getNextQuestion'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

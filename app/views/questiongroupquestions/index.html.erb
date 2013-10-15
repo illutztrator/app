@@ -1,0 +1,31 @@
+<h1>Listing questiongroupquestions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Questiongroup</th>
+      <th>Question</th>
+      <th>Position</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questiongroupquestions.each do |questiongroupquestion| %>
+      <tr>
+        <td><%= questiongroupquestion.questiongroup_id %></td>
+        <td><%= questiongroupquestion.question_id %></td>
+        <td><%= questiongroupquestion.position %></td>
+        <td><%= link_to 'Show', questiongroupquestion %></td>
+        <td><%= link_to 'Edit', edit_questiongroupquestion_path(questiongroupquestion) %></td>
+        <td><%= link_to 'Destroy', questiongroupquestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questiongroupquestion', new_questiongroupquestion_path %>

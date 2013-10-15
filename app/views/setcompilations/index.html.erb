@@ -1,0 +1,29 @@
+<h1>Listing setcompilations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Theme</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @setcompilations.each do |setcompilation| %>
+      <tr>
+        <td><%= setcompilation.name %></td>
+        <td><%= setcompilation.theme %></td>
+        <td><%= link_to 'Show', setcompilation %></td>
+        <td><%= link_to 'Edit', edit_setcompilation_path(setcompilation) %></td>
+        <td><%= link_to 'Destroy', setcompilation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Setcompilation', new_setcompilation_path %>

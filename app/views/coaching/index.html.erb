@@ -1,2 +1,17 @@
-<h1>Coaching#index</h1>
-<p>Find me in app/views/coaching/index.html.erb</p>
+<div class="row">
+				
+	<div class="textItem col-lg-8 col-lg-offset-2 ">
+		<%= raw(@text.text) %>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+<div class="row">
+	<div class="inputArea col-lg-8 col-lg-offset-2">
+			<p>
+				Wenn Du bereit bist, dann klicke bitte auf 
+			</p>
+			<%= link_to "Start", {:action => 'start', :controller => 'coaching'}, {:class => 'btn btn-default text-center'} %>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+

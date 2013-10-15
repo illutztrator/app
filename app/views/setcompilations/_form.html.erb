@@ -1,0 +1,25 @@
+<%= form_for(@setcompilation) do |f| %>
+  <% if @setcompilation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setcompilation.errors.count, "error") %> prohibited this setcompilation from being saved:</h2>
+
+      <ul>
+      <% @setcompilation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :theme %><br>
+    <%= f.text_field :theme %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

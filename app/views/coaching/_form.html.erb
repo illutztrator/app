@@ -1,0 +1,43 @@
+<%= form_tag("/coaching", method: "post") do %>
+ 
+
+	<div class="field">
+    <% if @parameters[:itemType] != "t" %>
+    <%= label_tag(:answer,"") %><br>
+	  <% case @item[:question_type] 
+	   		when "t" %>
+		 		<%= text_area_tag(:answer, "", size: "60x6") unless @item[:question_type] != "t" %>
+  	<%  when "s" 
+		 			if @item[:question_type] == "s" %>
+		 				<div class="slider"></div>
+		 				<%= hidden_field_tag(:answer,50)  %>
+		<%    end 
+			 	when "b" %>	
+					<div class="btn-group" data-toggle="buttons">
+					  <label class="btn btn-primary">
+					    <input type="radio" name="answer-yesno" id="yes"> Ja
+					  </label>
+					  <label class="btn btn-primary">
+					    <input type="radio" name="answer-yesno" id="no"> Nein
+					  </label>
+					  <%= hidden_field_tag(:answer)  %>
+					</div>
+				 
+		<%  end %> 
+		<% end %>
+	</div>
+  
+  <div class="actions">
+  	<%= hidden_field_tag(:itemId, @item.id) %>
+  	<% if	!@parameters[:ancestor_id].nil? %>
+  		<%= hidden_field_tag(:aId, @parameters[:ancestor_id]) %>
+  	<% end %>
+  	<% if @parameters[:new_session] %>
+  		<%= hidden_field_tag(:newSession, true) %>
+  	<% end %>
+  	<%= hidden_field_tag(:sId, @parameters[:sessionid]) %>
+  	<%= hidden_field_tag(:uId, @parameters[:uId]) %>
+  	<%= hidden_field_tag(:setItemId, @parameters[:setItemId]) %>
+    <%= submit_tag("Weiter") %>
+  </div>
+<% end %>

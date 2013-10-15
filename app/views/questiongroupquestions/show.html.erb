@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Questiongroup:</strong>
+  <%= @questiongroupquestion.questiongroup_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @questiongroupquestion.question_id %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @questiongroupquestion.position %>
+</p>
+
+<%= link_to 'Edit', edit_questiongroupquestion_path(@questiongroupquestion) %> |
+<%= link_to 'Back', questiongroupquestions_path %>

@@ -1,0 +1,31 @@
+<h1>Listing answer_switches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Nextquestion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answer_switches.each do |answer_switch| %>
+      <tr>
+        <td><%= answer_switch.question_id %></td>
+        <td><%= answer_switch.answer %></td>
+        <td><%= answer_switch.nextQuestion %></td>
+        <td><%= link_to 'Show', answer_switch %></td>
+        <td><%= link_to 'Edit', edit_answer_switch_path(answer_switch) %></td>
+        <td><%= link_to 'Destroy', answer_switch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answer switch', new_answer_switch_path %>

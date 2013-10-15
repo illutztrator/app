@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Set:</strong>
+  <%= @set_compilation_link.set_id %>
+</p>
+
+<p>
+  <strong>Setcompilation:</strong>
+  <%= @set_compilation_link.setcompilation_id %>
+</p>
+
+<%= link_to 'Edit', edit_set_compilation_link_path(@set_compilation_link) %> |
+<%= link_to 'Back', set_compilation_links_path %>

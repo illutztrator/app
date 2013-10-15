@@ -1,0 +1,274 @@
+#logo{
+	
+}
+
+header{
+	padding-top: 25px;
+	#logo{
+		margin-left: 62px;
+	}
+}
+
+nav{
+	
+	.navPrepend{
+		background: #FFF;
+		width: 57px;
+		float: left;
+	}
+	
+	.navigationItem{
+		
+	}
+	
+	.navigationItem{
+		
+		&.active{
+			background: #f8b334;
+			
+			&:hover{
+				background: #f8b334 !important; 
+			}
+		}
+		background: #FFF;
+		display: block;
+		margin-right: 8px;
+		float: left;
+		box-sizing: border-box;
+	}	
+
+
+	&#mainNavigation{
+	
+		margin-top: 25px;
+		
+			
+		.navPrepend{
+			height: 42px;
+		}
+		
+		.navigationItem{
+			padding: 10px;
+		}
+		
+		#loginLink{
+			color: #FFF;
+			background: #f8b334 !important;
+			
+			&:hover{
+				background: #6a6a6a !important;
+			}
+		}
+	
+	}
+	
+	&#secondLevelNavigation{
+		margin-top: 25px;
+		
+		.navPrepend{
+			height: 36px;
+		}
+		
+		.navigationItem{
+			padding: 8px;
+			height: 36px;
+		}
+	
+	}
+	
+	&.contentNavigation{
+		
+		.navigationItem{
+			padding: 5px;
+			margin: 8px 0;
+			height: 30px;
+		}
+		
+		.navigationSpacer{
+			background: #FFF;
+			display: block;
+			margin-right: 8px;
+			box-sizing: border-box;
+			height: 30px;
+			padding: 5px;
+		}
+	}
+}
+
+#content{
+
+	margin-top: 15px;
+
+	h1{
+			padding: 10px;
+			display: inline-block;
+			background: transparent !important;
+	}
+
+	article{
+		padding: 10px;
+		background: #FFF;
+	}
+	
+	ul{
+		margin-left: 0 !important;
+		
+		&.contentList{
+		}
+		
+		li{
+			list-style: none;
+			list-style-position: inside;
+			margin-bottom: 10px;
+			margin-top: 10px; 
+		
+			.listItemContent{
+				background: #FFF;
+				padding: 8px;
+				display: inline-block;
+				padding: 10px;
+				overflow: visible;
+				position: relative;
+				text-align: left;
+			
+				.checkIcon{
+					position: absolute;
+					bottom: -7px;
+					right: -10px;
+				}
+			}
+		}
+	}
+	
+	.contentNavigation.vNav{
+		ul{
+			margin-left: 0 !important;
+					
+			li{
+				list-style: none;
+				list-style-position: inside;
+	/* 			margin-left: 0 !important; */
+				margin-bottom: 10px;
+				margin-top: 10px; 
+			
+				.listItemContent{
+					background: #FFF;
+					display: inline-block;
+					padding: 3px 8px 3px 8px;
+					overflow: visible;
+					position: relative;				
+					float: none;
+					white-space: nowrap !important;
+					
+					&.active{
+						background: @brand-primary;
+						margin-right: 0
+					}
+				
+					a{
+						padding: 0;
+						line-height: 12px;
+						
+						&.navigationItem{
+							height: 13px !important;
+						}
+					}
+				
+					.checkIcon{
+						position: absolute;
+						bottom: -7px;
+						right: -10px;
+					}
+					
+					a{
+						background: transparent;
+					}
+				}
+			}
+		}
+	}
+	
+	.lightWhiteBackground{
+		background: rgba(255,255,255,0.65);
+	}	
+	
+	.top-arrow-row{
+		margin-bottom: 3px !important; 
+	}
+	
+	.bottom-arrow-row{
+		margin-top: 3px !important; 
+	}
+	
+	#dotNavArrowTop{
+		width: 50px;
+		height: 75px;
+		position: absolute;
+		top: 2px;
+ 		background: url(../img/arrow-sprite.png) transparent 0px 0px no-repeat;
+ 		cursor: pointer;
+	}
+	
+	#dotNavArrowBottom{
+		width: 50px;
+		height: 75px;
+		position: absolute;
+		bottom: 2px;
+ 		background: url(../img/arrow-sprite.png) transparent 0px -57px  no-repeat;
+ 		cursor: pointer;
+	}
+	
+	.vArrowNavCol{
+		position: relative;
+		width: 60px !important;
+		padding: 0 5px;
+		height: 260px;
+		
+	}
+
+	#scrollPane{
+		position: relative;
+
+		.contentItem{
+			position: relative;			
+		}
+		
+	}
+	
+	
+	
+	.row{
+		&.scrollStage{
+			overflow: hidden;
+			height: 260px;
+		}
+	}
+
+}
+
+footer{
+	height: 120px;
+	margin: 75px 0 75px 0;
+}
+
+.col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12{
+	.img-responsive{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+
+	
+	
+}

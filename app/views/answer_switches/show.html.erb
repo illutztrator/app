@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer_switch.question_id %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer_switch.answer %>
+</p>
+
+<p>
+  <strong>Nextquestion:</strong>
+  <%= @answer_switch.nextQuestion %>
+</p>
+
+<%= link_to 'Edit', edit_answer_switch_path(@answer_switch) %> |
+<%= link_to 'Back', answer_switches_path %>
