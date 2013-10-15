@@ -22,6 +22,6 @@ module App
     
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(/app/models)
+    config.autoload_paths += %W(#{RAILS_ROOT}/app/models)
   end
 end
