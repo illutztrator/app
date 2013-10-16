@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929114036) do
+ActiveRecord::Schema.define(version: 20131016083821) do
 
   create_table "answer_switches", force: true do |t|
     t.integer  "setItemId"
@@ -99,15 +99,6 @@ ActiveRecord::Schema.define(version: 20130929114036) do
     t.integer  "ancestor_id"
   end
 
-  create_table "setItems", force: true do |t|
-    t.integer  "set_id"
-    t.integer  "item_id"
-    t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "itemtype"
-  end
-
   create_table "set_compilation_links", force: true do |t|
     t.integer  "set_id"
     t.integer  "setcompilation_id"
@@ -121,6 +112,15 @@ ActiveRecord::Schema.define(version: 20130929114036) do
     t.string   "theme"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "setitems", force: true do |t|
+    t.integer  "set_id"
+    t.integer  "item_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "itemtype"
   end
 
   create_table "texts", force: true do |t|
