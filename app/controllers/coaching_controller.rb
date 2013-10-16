@@ -104,7 +104,7 @@ class CoachingController < ApplicationController
   def checkAnswer(setItemId, sid)
   	#Rails.logger.debug("Ich checke!!! ---------------- ---------------- ---------------- ---------------- ----------------")
   	#@answerData = Answer.find_by_sql(%Q(SELECT answers.* FROM answers JOIN session_answers on answers.id = session_answers.answer_id WHERE answers.question_id = #{setItemId} AND session_answers.session_id = #{sid}))
-  	@answerData = Answer.find_by_sql(%Q(SELECT answers.* FROM answers JOIN session_answers on answers.id = session_answers.answer_id JOIN setItems on setItems.id = #{setItemId}  WHERE answers.question_id = setItems.item_id AND session_answers.session_id = #{sid}))
+  	@answerData = Answer.find_by_sql(%Q(SELECT answers.* FROM answers JOIN session_answers on answers.id = session_answers.answer_id JOIN setitems on setitems.id = #{setItemId}  WHERE answers.question_id = setitems.item_id AND session_answers.session_id = #{sid}))
 		
 		@answer = @answerData[0]
 		
