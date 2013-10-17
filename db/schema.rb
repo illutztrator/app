@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017115456) do
+ActiveRecord::Schema.define(version: 20131017162034) do
 
   create_table "answer_switches", force: true do |t|
     t.integer  "setItemId"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20131017115456) do
   end
 
   create_table "problems", force: true do |t|
-    t.integer  "question_id"
+    t.integer  "item_id"
     t.text     "problem"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20131017115456) do
   end
 
   create_table "questionproblems", force: true do |t|
-    t.integer  "question_id"
+    t.integer  "item_id"
     t.integer  "problemcount"
     t.datetime "created_at"
     t.datetime "updated_at"
