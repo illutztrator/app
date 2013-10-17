@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016083821) do
+ActiveRecord::Schema.define(version: 20131017115456) do
 
   create_table "answer_switches", force: true do |t|
     t.integer  "setItemId"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20131016083821) do
     t.integer  "answer_of_setItem"
     t.string   "question_type"
     t.boolean  "check_against"
+    t.text     "explanation"
   end
 
   create_table "questionsets", force: true do |t|
