@@ -21,6 +21,7 @@ module App
     # config.i18n.default_locale = :de
     
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(/app/models)
   end
