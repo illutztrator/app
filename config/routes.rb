@@ -20,6 +20,7 @@ App::Application.routes.draw do
   get "coaching/welcome", to: 'coaching#index'
   get "coaching/start", to: "coaching#start"
   post "coaching", to: "coaching#coaching"
+  post "coaching/addQPCount", to: "coaching#addQPCount"
   get "index/home"
   get "index/about"
   

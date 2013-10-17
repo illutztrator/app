@@ -123,4 +123,25 @@ class CoachingController < ApplicationController
   	@sessID = Time.now.getutc.to_i + uId.to_i
   end
   
+  def addQPCount
+  	@itemId = params[:itemId]
+  	@problemData = Questionproblem.find_by(:item_id => @itemId)
+  	
+  	if(@problemData.nil?)
+  		@problemData = Questionproblem.new(item_id: @itemId, problemcount: 1)
+  		@problemData.save
+  		Rails.logger.debug("Neues Problem: #{@problemData}")
+  	else
+  		Rails.logger.debug("Altes Problem: #{@problemData}")
+  		@count = @problemData[:problemcount]
+  	#	@count.to_i
+  	#	Rails.logger.debug("Count: #{@count.class}")
+  		@count+= 1
+  		
+			@problemData.update(problemcount: @count)
+			render :nothing => true, :status => 200, :content_type => 'text/html'  
+  	end
+			
+  end
+  
 end

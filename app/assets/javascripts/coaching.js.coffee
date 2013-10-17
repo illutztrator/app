@@ -11,12 +11,16 @@ setHelperIconPosition = () ->
 	offset = (parentHeight/2)-($('#questionHelperIcon').height()/2)
 	console.log(offset)
 	$('#questionHelperIcon').css({top: offset})
-	$('#questionHelperIcon').click((event) -> $('#questionHelperContent').toggle();)
+	$('#questionHelperIcon').click((event) -> 
+		$('#questionHelperContent').toggle()
+		$('#questionHelperIcon').toggleClass('active')
+		)
 
 
-reportHelperClick = () ->
-	itemId = $('#itemId').value();
-	$.ajax();
+reportHelperClick = (helpIcon) ->
+	itemId = $('#itemId').val();
+	if !helpIcon.hasClass('active')
+		$.post('/coaching/addQPCount', { itemId: itemId});
 
 jQuery -> $('.slider').slider({max:100, min:0, value:50, orientation:"horizontal", step:1}).on( "slidestop", ( event, ui ) -> $('#answer').attr('value',$('.slider').slider('value')); )
 jQuery -> $('.btn-group').button()
@@ -24,6 +28,7 @@ jQuery -> $('.btn-group').button()
 jQuery -> $('.btn-group .btn').click((event) -> checkChecked($(this)))
 #jQuery -> $('#true').click((event) -> this.attr('checked','checked'))
 window.onload = -> setHelperIconPosition()
+jQuery -> $('#questionHelperIcon').click((event) -> reportHelperClick($(this)))
 
 
 
