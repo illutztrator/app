@@ -30,6 +30,7 @@ getQuestionAlternative = () ->
 		gId: groupId 
 		qId: questionId
 		(data) -> $('#textItemContent').html(data.text)
+			$('#qId').val(data.id)
 	
 	
 
