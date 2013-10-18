@@ -143,15 +143,17 @@ class CoachingController < ApplicationController
   
   def getNextGroupItem
   	@currentGroupitem = Questiongroupquestion.find_by(:questiongroup_id => params[:gId], :question_id => params[:qId])
+		Rails.logger.debug("Curr Position = #{@currentGroupitem[:position]}")
 		if @currentGroupitem[:position] > 1
-			@newPos = @currentGroupitem[:position] -= 1 
+			@newPos = @currentGroupitem[:position] -= 1
+			Rails.logger.debug("New Position = #{@newPos}") 
 		else
-			@maxPos = Questiongroupquestion.find_by_sql(%Q(SELECT MAX(position) FROM questiongroupquestions WHERE questiongroup_id = #{params[:gId]}))
+			@maxPos = Questiongroupquestion.find_by_sql(%Q(SELECT MAX(position) as position FROM questiongroupquestions WHERE questiongroup_id = #{params[:gId]}))
 			@maxPos = @maxPos[0]
-			@newPos = @maxPos
-			Rails.logger.debug("New Position = #{@maxPos}")
+			@newPos = @maxPos[:position]
+			Rails.logger.debug("Neue Position = #{@newPos}")
 		end
-		@nextGroupItem = Questiongroupquestion.find(@newPos);
+		@nextGroupItem = Questiongroupquestion.find_by(:position => @newPos);
 		@item = Question.find(@nextGroupItem[:question_id])
 		render json: @item  
   end

@@ -29,16 +29,15 @@ getQuestionAlternative = () ->
 	$.post '/coaching/getNextGroupItem',
 		gId: groupId 
 		qId: questionId
-		(data) -> $('#textItemContent').html(data.text)
+		(data) -> 
+			$('#textItemContent').html(data.text)
 			$('#qId').val(data.id)
 	
 	
 
 jQuery -> $('.slider').slider({max:100, min:0, value:50, orientation:"horizontal", step:1}).on( "slidestop", ( event, ui ) -> $('#answer').attr('value',$('.slider').slider('value')); )
 jQuery -> $('.btn-group').button()
-#jQuery -> $('.btn-group').click((event) -> $('#'+checkChecked()).attr('checked','checked') unless checkChecked())
 jQuery -> $('.btn-group .btn').click((event) -> checkChecked($(this)))
-#jQuery -> $('#true').click((event) -> this.attr('checked','checked'))
-window.onload = -> setHelperIconPosition()
 jQuery -> $('#questionHelperIcon').click((event) -> reportHelperClick($(this)))
 jQuery -> $('#switchQuestionButton').click((ecent) -> getQuestionAlternative())
+window.onload = -> setHelperIconPosition()
