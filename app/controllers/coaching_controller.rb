@@ -49,8 +49,10 @@ class CoachingController < ApplicationController
 		
 		@nextItemData = getNextItem(params[:itemId],  @sessId, params[:setItemId])
 		@item = @nextItemData[:item]
+		@groupId = @nextItemData[:groupId]
 		@nextItemData = @nextItemData[:setItem]
 		@parameters = {:sessionid => @sessId, :user_id => params[:uId], :setItemId => @nextItemData[:id], :itemType => @nextItemData[:itemtype]}
+		@parameters[:groupid] = @groupId #unless !@nextItemData[:groupId].nil?
 		@item
   end
     
@@ -80,7 +82,7 @@ class CoachingController < ApplicationController
 		Rails.logger.debug("Next-Id: #{@nextId}")
   	
   	@nextItemData = Setitem.find(@nextId)
-	
+		@groupId = nil
 	
 		case @nextItemData[:itemtype]
   		when "q"
@@ -88,7 +90,8 @@ class CoachingController < ApplicationController
   			@item = Question.find(@nextItemData[:item_id])
 			when "g"
 				@type = "q"
-				@item = Questiongroupquestion.where(:questiongroup_id => @nextItemData[:item_id]).order('position DESC').first
+				@groupId = @nextItemData[:item_id];
+				@item = Questiongroupquestion.where(:questiongroup_id => @groupId).order('position DESC').first
 				@item = Question.find(@item[:question_id])
 			when "t"
 				@type ="t"
@@ -98,7 +101,7 @@ class CoachingController < ApplicationController
 		end
 		@item.insertion(@sessId, @nextId)		
   	@item
-  	return {:item => @item, :setItem => @nextItemData}
+  	return {:item => @item, :setItem => @nextItemData, :groupId => @groupId}
   end	  
   
   def checkAnswer(setItemId, sid)
@@ -118,7 +121,6 @@ class CoachingController < ApplicationController
 		
   end
   
-  
   def generateSessId(uId)
   	@sessID = Time.now.getutc.to_i + uId.to_i
   end
@@ -130,18 +132,27 @@ class CoachingController < ApplicationController
   	if(@problemData.nil?)
   		@problemData = Questionproblem.new(item_id: @itemId, problemcount: 1)
   		@problemData.save
-  		Rails.logger.debug("Neues Problem: #{@problemData}")
   	else
-  		Rails.logger.debug("Altes Problem: #{@problemData}")
   		@count = @problemData[:problemcount]
-  	#	@count.to_i
-  	#	Rails.logger.debug("Count: #{@count.class}")
-  		@count+= 1
-  		
+   		@count+= 1
 			@problemData.update(problemcount: @count)
-			render :nothing => true, :status => 200, :content_type => 'text/html'  
   	end
+		render :nothing => true, :status => 200, :content_type => 'text/html'  
 			
   end
   
+  def getNextGroupItem
+  	@currentGroupitem = Questiongroupquestion.find_by(:questiongroup_id => params[:gId], :question_id => params[:qId])
+		if @currentGroupitem[:position] > 1
+			@newPos = @currentGroupitem[:position] -= 1 
+		else
+			@maxPos = Questiongroupquestion.find_by_sql(%Q(SELECT MAX(position) FROM questiongroupquestions WHERE questiongroup_id = #{params[:gId]}))
+			@maxPos = @maxPos[0]
+			@newPos = @maxPos
+			Rails.logger.debug("New Position = #{@maxPos}")
+		end
+		@nextGroupItem = Questiongroupquestion.find(@newPos);
+		@item = Question.find(@nextGroupItem[:question_id])
+		render json: @item  
+  end
 end

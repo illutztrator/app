@@ -31,6 +31,11 @@
 					<p>
 						<%= @item[:explanation]%>
 					</p>
+					<% #if @item[:itemType] == 'g' %>
+					<p>
+						<span class="btn btn-primary" id="switchQuestionButton">Stelle die Frage bitte anders</span>
+					</p>
+					<% #end %>
 				</div>
 		</div>
 
@@ -45,7 +50,9 @@
   		<%= hidden_field_tag(:newSession, true) %>
   	<% end %>
   	<%= hidden_field_tag(:sId, @parameters[:sessionid]) %>
+  	<%= hidden_field_tag(:gId, @parameters[:groupid]) unless @parameters[:groupid].nil? %>
   	<%= hidden_field_tag(:uId, @parameters[:uId]) %>
+  	<%= hidden_field_tag(:qId, @item[:id]) %>
   	<%= hidden_field_tag(:setItemId, @parameters[:setItemId]) %>
     <%= submit_tag("Weiter") %>
   </div>

@@ -21,6 +21,7 @@ App::Application.routes.draw do
   get "coaching/start", to: "coaching#start"
   post "coaching", to: "coaching#coaching"
   post "coaching/addQPCount", to: "coaching#addQPCount"
+  post "coaching/getNextGroupItem", to: "coaching#getNextGroupItem"
   get "index/home"
   get "index/about"
   
